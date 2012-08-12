@@ -1,0 +1,69 @@
+***** Web Capacity Report *****
+URL: http://localhost:8080/marcus-web/index.html
+Time limit per step: 3s
+
+Capacity: 2138 requests/s
+ * request time: 500 ms/request
+ * concurrency: 200  
+Request time threshold: 2430 requests/s
+ * concurrency: 300
+
+Performance
+Capacity
+Throughput
+
+For a given time (-t) (default 3s) increase the concurrency (-c) (start 10) 
+until the time per request (mean, across all) 
+ * increase faster than the concurrency (this is the capacity (corner))
+ * is longer than a given time interval (default 500ms).
+Report throughput at these level.
+
+
+
+Marcus-Philips-MacBook-Pro:~ marcus$ ab -t 1 -c 20 http://localhost:8080/marcus-web/index.html
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Finished 1544 requests
+
+
+Server Software:        Apache-Coyote/1.1
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /marcus-web/index.html
+Document Length:        214 bytes
+
+Concurrency Level:      20
+Time taken for tests:   1.037 seconds
+Complete requests:      1544
+Failed requests:        0
+Write errors:           0
+Total transferred:      844568 bytes
+HTML transferred:       330416 bytes
+Requests per second:    1488.90 [#/sec] (mean)
+Time per request:       13.433 [ms] (mean)
+Time per request:       0.672 [ms] (mean, across all concurrent requests)
+Transfer rate:          795.34 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   6.8      1      91
+Processing:     1   10  12.4      6      91
+Waiting:        0    9  11.3      5      91
+Total:          1   13  13.8      8     102
+
+Percentage of the requests served within a certain time (ms)
+  50%      8
+  66%     10
+  75%     13
+  80%     17
+  90%     26
+  95%     36
+  98%     53
+  99%     94
+ 100%    102 (longest request)
+Marcus-Philips-MacBook-Pro:~ marcus$
+ 
